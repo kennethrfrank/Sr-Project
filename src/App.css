@@ -1,0 +1,133 @@
+
+body{
+  overflow-x: hidden;
+  background-image: url("./bg.gif") !important;
+  background-size: cover !important;
+  background-color: #020202 !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+   background-color: #020202 !important;
+ }
+/* #root{
+  
+} */
+.App {
+  text-align: center;
+  
+  
+  font-family: 'RobotoSlab';
+  
+}
+
+.shopify-buy-frame > iframe{
+  min-height:80vh;
+  display: none;
+  background-color: #00000096;
+}
+
+
+
+.wb{
+  border: white 2px;
+}
+a:hover{
+  color:#E2B74F;
+}
+
+@font-face{
+  font-family: 'Multicolore';
+  src: url(./Multicolore.otf);
+}
+@font-face{
+  font-family: 'RobotoSlab';
+  src: url(./RobotoSlab-VariableFont_wght.ttf);
+}
+
+
+.whitebg{
+  border: 3px solid white;
+
+}
+
+
+
+
+.theButtons{
+  text-align: center;
+}
+
+.navbar{
+  height: 120px;
+  color: #E2B74F;
+  font-weight: bold;
+}
+.tagline{
+  position: relative;
+  top: 25px;
+  right: 25px;
+  font-style: italic;
+  text-align: right;
+}
+
+.navbarColumn{
+  height: 100%;
+  text-align: right;
+}
+
+
+.mainlinks{
+  color:#E2B74F;
+  padding-left: 30px;
+  text-align: center;
+  position: relative;
+  top: 68%;
+  right: 18%;
+  font-size: 5vmin;
+}
+.mainlinks:hover{
+  color:#f8e6be;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+
+  
+/*Screen 1000px or less*/
+@media only screen and (max-width:1000px) {
+  /*.nft34156852{
+    position: relative;
+    right:2.5%;
+    /*digitalLotus was positioned right for some reason, should probably update to mobile only
+    }*/
+ 
+}
+@media only screen and (max-width: 600px){
+
+
+}
+
+
+.App-link { 
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+html, .root{
+  overflow-x: hidden;
+}

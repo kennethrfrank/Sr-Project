@@ -1,0 +1,49 @@
+.tagContainer{
+  position: relative;
+}
+
+.tagline{
+    color: #f8e6be ;
+    opacity: 77%;
+    text-shadow:1px 1px 1px black ;
+    font-family: 'Roboto Slab' !important;
+    letter-spacing: 2px;
+    text-align: right !important;
+    font-size: 12.5px;
+    position: absolute;
+    right: 19.5px;
+    top: 2px;
+    font-weight: 500 !important;
+}
+.navbar{
+  display: flex;
+}
+.whiteborder{
+  border: 2px solid white !important;
+}
+.topLogoRow{
+  background-color: #0604018a;
+}
+.logoAndTag{
+  margin-top: 33px;
+}
+
+.NclyneLogo{
+    height: 60px;
+    opacity: 77%;
+    margin-left: 12.5px;
+  }
+  @font-face{
+    font-family: 'Multicolore';
+    src: url(../../Multicolore.otf);
+  }
+
+  .logoText{
+    letter-spacing: 10px;
+    font-family: 'Multicolore' !important;
+  }
+  .logoText > img{
+    min-width: 150px !important;
+  }
+
+  

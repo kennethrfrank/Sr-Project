@@ -1,0 +1,17 @@
+.searchArtists > input {
+    border-radius: 90px !important;
+    border: 1.5px solid rgba(255, 201, 75, 0.5)  !important;
+    background-color: rgba(53, 37, 1, 0.8) !important;
+    color:#f8e6be!important;
+    
+  }
+  ::placeholder{
+  color: #f8e6be !important;
+  }
+  .searchArtists > i {
+    color:#E2B74F !important;
+  }
+  .searchArtists{
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
