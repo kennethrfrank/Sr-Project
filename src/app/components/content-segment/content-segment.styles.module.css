@@ -1,0 +1,28 @@
+.segmentBox {
+  padding: 18px;
+  background: #0f0f10;
+  border: 1px solid rgba(243, 201, 105, 0.4);
+  border-radius: 14px;
+  color: #f3e9d2;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  color: #f3c969;
+}
+
+.segmentImage {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.copy {
+  margin: 6px 0;
+  color: #e9e2d3;
+  line-height: 1.4;
+}

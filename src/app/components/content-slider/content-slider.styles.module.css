@@ -1,0 +1,63 @@
+.sliderContainerStyling {
+  background-color: rgba(226, 183, 79, 0.15);
+  color: #000;
+  border-radius: 20px;
+  padding: 12px;
+}
+
+.scroller {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 1fr);
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 6px;
+}
+
+.card {
+  background: #0f0f10;
+  color: #f3e9d2;
+  border-radius: 14px;
+  border: 1px solid rgba(243, 201, 105, 0.35);
+  overflow: hidden;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.meta {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.meta h4 {
+  margin: 0;
+  color: #f3c969;
+}
+
+.meta p {
+  margin: 0;
+}
+
+.meta button {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(243, 201, 105, 0.8);
+  background: #0f0f10;
+  color: #f3c969;
+  cursor: pointer;
+}
+
+.meta button:hover {
+  background: #f3c969;
+  color: #0b0801;
+}

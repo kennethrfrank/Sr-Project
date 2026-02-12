@@ -1,0 +1,49 @@
+.shell {
+  width: 100%;
+  padding: 18px 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.logoText {
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #f3c969, #f5a524);
+  color: #0b0801;
+  border-radius: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tagline {
+  flex: 1;
+  color: #e9e2d3;
+  font-weight: 600;
+}
+
+.ctaButton {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(243, 201, 105, 0.8);
+  background: #0f0f10;
+  color: #f3c969;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.ctaButton:hover {
+  background: #f3c969;
+  color: #0b0801;
+}

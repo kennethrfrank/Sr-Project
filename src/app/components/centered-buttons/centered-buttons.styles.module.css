@@ -1,0 +1,27 @@
+.buttonRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 12px 0 20px;
+}
+
+.blackButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #0f0f10;
+  color: #f3c969;
+  border: 1px solid rgba(243, 201, 105, 0.7);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.blackButton:hover {
+  background: #f3c969;
+  color: #0b0801;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(243, 201, 105, 0.25);
+}

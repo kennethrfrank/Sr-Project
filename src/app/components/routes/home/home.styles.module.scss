@@ -1,0 +1,96 @@
+.homeContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.homeContentContainer {
+  width: min(960px, 100%);
+  background: radial-gradient(circle at 10% 20%, #1b1b1b 0%, #050505 60%);
+  color: #f7f3e8;
+  padding: 32px 28px 40px;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.heroHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.heroLogo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 60px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f3c969, #f5a524);
+  color: #0b0801;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.homeCopy {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 18px 20px;
+  line-height: 1.4;
+  backdrop-filter: blur(6px);
+}
+
+.homeCopy h2 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.homeCopy h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f3dfa8;
+}
+
+.buttonStack {
+  margin-top: 28px;
+  display: grid;
+  gap: 12px;
+}
+
+.blackHomeButton {
+  width: 100%;
+  border: 1px solid #f3c969;
+  border-radius: 12px;
+  background: #0d0d0d;
+  color: #f3c969;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.blackHomeButton:hover {
+  background: #f3c969;
+  color: #0b0801;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(243, 201, 105, 0.25);
+}
+
+@media (max-width: 640px) {
+  .homeContentContainer {
+    padding: 22px 18px;
+  }
+
+  .heroLogo {
+    width: 150px;
+    height: 50px;
+    font-size: 0.9rem;
+  }
+}

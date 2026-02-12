@@ -1,0 +1,38 @@
+.galleryShell {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.roomButtons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.roomButton {
+  background: #0f0f10;
+  color: #f3c969;
+  border: 1px solid rgba(243, 201, 105, 0.6);
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease, transform 120ms ease;
+}
+
+.roomButton:hover,
+.roomButton.active {
+  background: #f3c969;
+  color: #0b0801;
+  transform: translateY(-1px);
+}
+
+.onCyberGallery {
+  height: 80vh;
+  width: 100%;
+  margin-top: 8px;
+  border-radius: 14px;
+  border: none;
+  background: #000;
+}
