@@ -113,7 +113,7 @@ export default function Home() {
   const homeButtons = [
     { buttonName: "Projects", action: "projects" as ViewKey, altname: "AI Generated Cybersecurity Questions" },
     { buttonName: "Gallery", action: "gallery" as ViewKey, altname: "OnCyber Gallery Scavenger Hunts" },
-    { buttonName: "Avatar Demo", action: "avatar" as ViewKey, altname: "Avatar Movement Demo" },
+    { buttonName: "Avatar Demo", action: "avatar" as ViewKey, altname: "Avatar Cyber Walk Quiz" },
   ];
 
   const onTopicChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -137,7 +137,7 @@ export default function Home() {
       case "content":
         return <Content videos={videos} articles={articles} />;
       case "avatar":
-        return <AvatarDemo />;
+        return <AvatarDemo topicOptions={CYBERSECURITY_TOPIC_OPTIONS} />;
       default:
         return <App buttons={homeButtons} onNavigate={setCurrentView} />;
     }
