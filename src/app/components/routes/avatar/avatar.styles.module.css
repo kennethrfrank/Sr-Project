@@ -1,0 +1,42 @@
+.shell {
+  width: min(980px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  margin: 0;
+  color: #f5d07e;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.instructions {
+  margin: 0;
+  color: #f0e6cf;
+}
+
+.playfield {
+  position: relative;
+  width: 100%;
+  height: min(68vh, 560px);
+  min-height: 360px;
+  border-radius: 12px;
+  border: 2px solid #f3c969;
+  background: transparent;
+  overflow: hidden;
+}
+
+.avatar {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  transform-origin: center center;
+  transition: filter 120ms ease;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+}

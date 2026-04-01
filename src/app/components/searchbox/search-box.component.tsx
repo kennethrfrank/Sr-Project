@@ -2,17 +2,25 @@ import React from "react";
 import styles from "./search-box.styles.module.css";
 
 type Props = {
-  onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  options: string[];
+  onChangeHandler: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
-const SearchBox: React.FC<Props> = ({ onChangeHandler }) => {
+const SearchBox: React.FC<Props> = ({ value, options, onChangeHandler }) => {
   return (
-    <input
+    <select
       className={styles.searchInput}
-      placeholder="Input suspected PHISH attempt ID..."
       onChange={onChangeHandler}
-      type="search"
-    />
+      value={value}
+      aria-label="Select a cybersecurity topic"
+    >
+      {options.map((topic) => (
+        <option key={topic} value={topic}>
+          {topic}
+        </option>
+      ))}
+    </select>
   );
 };
 

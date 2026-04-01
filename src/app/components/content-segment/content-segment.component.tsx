@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./content-segment.styles.module.css";
 
-type Segment = {
+export type Segment = {
   title: string;
   subCopy: string[];
   img?: string;
