@@ -1,0 +1,168 @@
+.panel {
+  border: 1px solid rgba(243, 201, 105, 0.28);
+  border-radius: 18px;
+  padding: 16px;
+  background: rgba(8, 8, 10, 0.62);
+  color: #f3e9d2;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.headingRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  margin: 0;
+  color: #f5d07e;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.subtitle {
+  margin: 0;
+  color: #e8dcb7;
+  font-size: 0.9rem;
+}
+
+.pill {
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ready {
+  background: rgba(110, 208, 140, 0.16);
+  color: #99f0af;
+}
+
+.loading {
+  background: rgba(243, 201, 105, 0.14);
+  color: #f5d07e;
+}
+
+.disabled {
+  background: rgba(148, 163, 184, 0.15);
+  color: #cbd5e1;
+}
+
+.error {
+  background: rgba(255, 122, 122, 0.14);
+  color: #ffb4b4;
+}
+
+.message {
+  margin: 0;
+  color: #e8dcb7;
+  line-height: 1.45;
+  font-size: 0.92rem;
+}
+
+.messageError {
+  color: #ffb4b4;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.statCard {
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(243, 201, 105, 0.08);
+  border: 1px solid rgba(243, 201, 105, 0.18);
+}
+
+.statLabel {
+  margin: 0 0 6px;
+  color: #d6c79c;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statValue {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f8edca;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: #d6c79c;
+  font-size: 0.88rem;
+}
+
+.sessionList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sessionCard {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sessionTopRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.sessionMode {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #d6c79c;
+}
+
+.sessionScore {
+  font-weight: 700;
+  color: #f5d07e;
+}
+
+.sessionTopic {
+  margin: 0;
+  color: #f8edca;
+  line-height: 1.35;
+}
+
+.sessionMeta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: #d6c79c;
+  font-size: 0.84rem;
+}
+
+@media (max-width: 720px) {
+  .headingRow {
+    flex-direction: column;
+  }
+}

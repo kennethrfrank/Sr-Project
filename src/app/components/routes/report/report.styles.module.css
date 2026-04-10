@@ -1,0 +1,187 @@
+.shell {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.summaryCard {
+  border-radius: 20px;
+  border: 1px solid rgba(243, 201, 105, 0.24);
+  padding: 22px;
+  background:
+    radial-gradient(circle at top left, rgba(243, 201, 105, 0.12), transparent 34%),
+    linear-gradient(160deg, rgba(8, 8, 10, 0.96), rgba(18, 19, 24, 0.92));
+  color: #f5ecd8;
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.28);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #f3c969;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.title {
+  margin: 0 0 12px;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  color: #fff7e6;
+}
+
+.summary {
+  margin: 0 0 12px;
+  max-width: 78ch;
+  color: #e7d9b5;
+  line-height: 1.6;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.metricCard {
+  border-radius: 16px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metricLabel {
+  color: #d3c7a6;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metricValue {
+  color: #fff4d2;
+  font-size: 1.45rem;
+}
+
+.message {
+  margin: 0;
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: rgba(10, 10, 12, 0.58);
+  border: 1px solid rgba(243, 201, 105, 0.12);
+  color: #e8dcb7;
+}
+
+.error {
+  color: #ffbbbb;
+}
+
+.tableShell {
+  overflow-x: auto;
+  border-radius: 18px;
+  border: 1px solid rgba(243, 201, 105, 0.18);
+  background: rgba(8, 8, 10, 0.76);
+}
+
+.table {
+  width: 100%;
+  min-width: 1080px;
+  border-collapse: collapse;
+}
+
+.table thead th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #d4c8a5;
+  background: rgba(243, 201, 105, 0.08);
+  border-bottom: 1px solid rgba(243, 201, 105, 0.16);
+}
+
+.table tbody td {
+  vertical-align: top;
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #f5ecd8;
+}
+
+.topicCell,
+.questionCell,
+.confidenceCell,
+.reviewCell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.topicCell span,
+.questionCell span,
+.confidenceCell span,
+.voteStatus {
+  color: #d6c79c;
+  font-size: 0.85rem;
+}
+
+.questionCell {
+  min-width: 280px;
+}
+
+.questionCell span,
+.confidenceCell p {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.confidenceCell strong {
+  color: #f3c969;
+}
+
+.voteActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.voteButton {
+  border-radius: 999px;
+  border: 1px solid rgba(243, 201, 105, 0.28);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f5ecd8;
+  padding: 8px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.voteButton:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.voteActiveUp {
+  background: rgba(64, 178, 112, 0.2);
+  border-color: rgba(64, 178, 112, 0.55);
+  color: #bff6cf;
+}
+
+.voteActiveDown {
+  background: rgba(191, 74, 74, 0.18);
+  border-color: rgba(248, 113, 113, 0.5);
+  color: #ffc1c1;
+}
+
+@media (max-width: 720px) {
+  .summaryCard {
+    padding: 18px;
+  }
+
+  .table {
+    min-width: 920px;
+  }
+}

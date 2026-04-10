@@ -3,7 +3,7 @@
 import React from "react";
 import styles from "./home.styles.module.scss";
 
-export type ViewKey = "home" | "projects" | "gallery" | "content" | "avatar";
+export type ViewKey = "home" | "projects" | "gallery" | "content" | "avatar" | "report";
 
 export type HomeButton = {
   buttonName: string;

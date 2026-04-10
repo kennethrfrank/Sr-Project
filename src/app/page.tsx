@@ -1,12 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
+import { useFirebaseUser } from "@/hooks/use-firebase-user";
+import { useQuizAnalytics } from "@/hooks/use-quiz-analytics";
+
+import QuizHistoryPanel from "./components/quiz-history-panel/quiz-history-panel.component";
 import styles from "./page.module.css";
-import Content from "./components/content/content.component";
 import Gallery from "./components/routes/gallery/gallery.component";
 import App from "./components/routes/home/app.component";
 import Projects from "./components/routes/projects/projects.component";
 import AvatarDemo from "./components/routes/avatar/avatar.component";
+import Report from "./components/routes/report/report.component";
 import LogoTagSiteStarter from "./components/logo-tag-site-starter/logo-tag-site-starter";
 import type { ViewKey } from "./components/routes/home/app.component";
 import type { Segment } from "./components/content-segment/content-segment.component";
@@ -19,33 +24,15 @@ const CYBERSECURITY_TOPIC_OPTIONS = [
   "Incident Response Fundamentals",
 ];
 
-const socials = [
-  { platform: "game", link: "https://tryhackme.com/", text: "HackMe" },
-  { platform: "game", link: "https://www.hackthebox.com/", text: "HackTheBox" },
-  { platform: "game", link: "https://hackviser.com/", text: "HackViser" },
-  { platform: "game", link: "https://store.steampowered.com/app/365450/Hacknet/", text: "Hacknet" },
-  {
-    platform: "mail",
-    email: "kfrank1@my.tnstate.edu",
-    name: "Kenny Frank",
-    subject: "SR Project Inquiry 2025",
-    text: "Contact - Kenny Frank",
-  },
-  {
-    platform: "mail",
-    email: "jfinch10@my.tnstate.edu",
-    name: "Joshua Finch",
-    subject: "SR Project Inquiry 2025",
-    text: "Contact - Joshua Finch",
-  },
-  {
-    platform: "mail",
-    email: "jwebst20@my.tnstate.edu",
-    name: "Jayden Webster",
-    subject: "SR Project Inquiry 2025",
-    text: "Contact - Jayden Webster",
-  },
+const platformLinks = [
+  { label: "TryHackMe", href: "https://tryhackme.com/" },
+  { label: "HackTheBox", href: "https://www.hackthebox.com/" },
+  { label: "Hackviser", href: "https://hackviser.com/" },
+  { label: "Hacknet", href: "https://store.steampowered.com/app/365450/Hacknet/" },
 ];
+
+const teamContactHref =
+  "mailto:kfrank1@my.tnstate.edu,jfinch10@my.tnstate.edu,jwebst20@my.tnstate.edu?subject=TSU%20SR%20Project%20Inquiry%202026&body=Hello%20TSU%20Cyber%20Edu%20team%2C%0D%0A%0D%0A";
 
 const curatedByNclyne: Segment = {
   title: "Cyber True/False Challenge",
@@ -67,58 +54,48 @@ const spaceLooters: Segment = {
 
 export default function Home() {
   const [topic, setTopic] = useState(CYBERSECURITY_TOPIC_OPTIONS[0]);
-  const [videos, setVideos] = useState<unknown[]>([]);
-  const [articles, setArticles] = useState<unknown[]>([]);
   const [gallery, setGallery] = useState("rift-mark-2");
   const [currentView, setCurrentView] = useState<ViewKey>("home");
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch(
-          "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCwZA4pIiYSJO9yrXOlcUMfQ&maxResults=3&order=date&key=AIzaSyDlI39i18q3VsuxcpwN4viDTitXUReCZkQ",
-        );
-        if (!response.ok) {
-          console.error("YouTube fetch failed with status", response.status);
-          setVideos([]);
-          return;
-        }
-        const vids = await response.json();
-        setVideos((vids && vids.items) || []);
-      } catch (err) {
-        console.error("Failed to fetch YouTube videos", err);
-        setVideos([]);
-      }
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch("https://v1.nocodeapi.com/frnk/medium/WYojXOwHqYlmoYft");
-        if (!response.ok) {
-          console.error("Medium fetch failed with status", response.status);
-          setArticles([]);
-          return;
-        }
-        const items = await response.json();
-        setArticles(items || []);
-      } catch (err) {
-        console.error("Failed to fetch Medium articles", err);
-        setArticles([]);
-      }
-    })();
-  }, []);
+  const {
+    userId,
+    account,
+    accountLabel,
+    status: authStatus,
+    errorMessage: authErrorMessage,
+    isBusy: isAuthBusy,
+    isEnabled,
+    continueAsGuest,
+    signInWithGoogle,
+    signOutUser,
+  } = useFirebaseUser();
+  const {
+    analytics,
+    status: analyticsStatus,
+    errorMessage: analyticsErrorMessage,
+  } = useQuizAnalytics(userId);
 
   const homeButtons = [
     { buttonName: "Projects", action: "projects" as ViewKey, altname: "AI Generated Cybersecurity Questions" },
     { buttonName: "Gallery", action: "gallery" as ViewKey, altname: "OnCyber Gallery Scavenger Hunts" },
     { buttonName: "Avatar Demo", action: "avatar" as ViewKey, altname: "Avatar Cyber Walk Quiz" },
+    { buttonName: "Report", action: "report" as ViewKey, altname: "AI Integrity Report" },
   ];
 
   const onTopicChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setTopic(event.target.value);
   };
+
+  const historyPanel = (
+    <QuizHistoryPanel
+      analytics={analytics}
+      analyticsStatus={analyticsStatus}
+      analyticsErrorMessage={analyticsErrorMessage}
+      authStatus={authStatus}
+      authErrorMessage={authErrorMessage}
+      isFirebaseEnabled={isEnabled}
+      userId={userId}
+    />
+  );
 
   const renderActiveView = () => {
     switch (currentView) {
@@ -130,14 +107,22 @@ export default function Home() {
             topic={topic}
             topicOptions={CYBERSECURITY_TOPIC_OPTIONS}
             onTopicChange={onTopicChange}
+            userId={userId}
+            historyPanel={historyPanel}
           />
         );
       case "gallery":
         return <Gallery gallery={gallery} setGallery={setGallery} />;
-      case "content":
-        return <Content videos={videos} articles={articles} />;
       case "avatar":
-        return <AvatarDemo topicOptions={CYBERSECURITY_TOPIC_OPTIONS} />;
+        return (
+          <AvatarDemo
+            topicOptions={CYBERSECURITY_TOPIC_OPTIONS}
+            userId={userId}
+            historyPanel={historyPanel}
+          />
+        );
+      case "report":
+        return <Report userId={userId} />;
       default:
         return <App buttons={homeButtons} onNavigate={setCurrentView} />;
     }
@@ -146,10 +131,24 @@ export default function Home() {
   return (
     <main className={styles.pageShell}>
       <LogoTagSiteStarter
-        logoLabel="Gamified CyberSecurity Education Platform"
-        tagline="TSU SR Project 2026"
-        socials={socials}
+        logoLabel="TSU Cyber Edu"
+        tagline="Gamified Cybersecurity Platform | SR Project 2026"
+        platformLinks={platformLinks}
+        teamContactHref={teamContactHref}
         onNavigate={setCurrentView}
+        auth={{
+          accountKind: account.kind,
+          accountLabel,
+          authStatus,
+          email: account.email,
+          errorMessage: authErrorMessage,
+          isBusy: isAuthBusy,
+          isEnabled,
+          photoURL: account.photoURL,
+          continueAsGuest,
+          signInWithGoogle,
+          signOutUser,
+        }}
       />
       <section className={styles.section}>{renderActiveView()}</section>
     </main>
