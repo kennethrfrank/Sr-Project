@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./projects.styles.module.scss";
 import ContentSegment from "../../content-segment/content-segment.component";
+import type { Segment } from "../../content-segment/content-segment.component";
 import SearchBox from "../../searchbox/search-box.component";
 import ContentSlider from "../../content-slider/content-slider.component";
-import type { Segment } from "../../content-segment/content-segment.component";
 
 type Props = {
   spaceLooters: Segment;
@@ -11,6 +11,8 @@ type Props = {
   topic: string;
   topicOptions: string[];
   onTopicChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  userId: string | null;
+  historyPanel: React.ReactNode;
 };
 
 const Projects: React.FC<Props> = ({
@@ -19,6 +21,8 @@ const Projects: React.FC<Props> = ({
   topic,
   topicOptions,
   onTopicChange,
+  userId,
+  historyPanel,
 }) => {
   return (
     <div className={styles.projectsShell}>
@@ -30,7 +34,11 @@ const Projects: React.FC<Props> = ({
             options={topicOptions}
             onChangeHandler={onTopicChange}
           />
-          <ContentSlider topic={topic} />
+          <ContentSlider topic={topic} userId={userId} />
+        </div>
+        <div className={styles.col}>
+          <ContentSegment segment={curatedByNclyne} />
+          {historyPanel}
         </div>
       </div>
     </div>

@@ -1,49 +1,366 @@
 .shell {
   width: 100%;
-  padding: 18px 22px;
-  background: rgba(255, 255, 255, 0.04);
+  padding: 12px 16px 10px;
+  background: rgba(7, 8, 10, 0.82);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: sticky;
   top: 0;
-  z-index: 10;
-  backdrop-filter: blur(8px);
+  z-index: 20;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
 
-.logoRow {
+.topRow {
   display: flex;
   align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brandButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
 }
 
 .logoText {
-  padding: 10px 14px;
+  padding: 8px 12px;
   background: linear-gradient(135deg, #f3c969, #f5a524);
   color: #0b0801;
   border-radius: 12px;
   font-weight: 800;
+  font-size: 0.88rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .tagline {
-  flex: 1;
   color: #e9e2d3;
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.ctaButton {
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(243, 201, 105, 0.8);
-  background: #0f0f10;
-  color: #f3c969;
+.controlCluster {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.accountButton {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 160px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(243, 201, 105, 0.28);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f8edca;
   cursor: pointer;
-  font-weight: 700;
-  transition: background 120ms ease, color 120ms ease;
 }
 
-.ctaButton:hover {
+.accountMode {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+}
+
+.accountLabel {
+  font-size: 0.95rem;
+  font-weight: 700;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountSignedOut {
+  border-color: rgba(148, 163, 184, 0.28);
+  color: #e2e8f0;
+}
+
+.accountAnonymous {
+  border-color: rgba(243, 201, 105, 0.42);
+  color: #f8edca;
+}
+
+.accountAlias {
+  border-color: rgba(94, 234, 212, 0.42);
+  color: #ccfbf1;
+}
+
+.accountGoogle {
+  border-color: rgba(129, 140, 248, 0.42);
+  color: #e0e7ff;
+}
+
+.accountError {
+  border-color: rgba(248, 113, 113, 0.42);
+  color: #fecaca;
+}
+
+.accountDisabled {
+  border-color: rgba(148, 163, 184, 0.28);
+  color: #cbd5e1;
+}
+
+.bottomRow {
+  margin-top: 10px;
+}
+
+.linkScroller {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+}
+
+.smallLink,
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 9px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border: 1px solid rgba(243, 201, 105, 0.28);
+  background: rgba(255, 255, 255, 0.04);
+  color: #e8dcb7;
+}
+
+.contactLink {
+  border-color: rgba(94, 234, 212, 0.28);
+  color: #ccfbf1;
+}
+
+.authPanel {
+  margin-top: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(243, 201, 105, 0.18);
+  background: rgba(12, 14, 17, 0.96);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.authSummary {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.authTitle {
+  margin: 0 0 4px;
+  color: #f5d07e;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.86rem;
+}
+
+.authHint {
+  margin: 0;
+  color: #d6c79c;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.accountAvatar,
+.accountBadge {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.accountAvatar {
+  object-fit: cover;
+}
+
+.accountBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f3c969, #f59e0b);
+  color: #111111;
+  font-weight: 800;
+}
+
+.authGrid {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.aliasLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #e8dcb7;
+  font-size: 0.86rem;
+  min-width: 220px;
+  flex: 1;
+}
+
+.aliasInput {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #f9f5eb;
+  color: #111111;
+  font-size: 0.95rem;
+}
+
+.authActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.primaryAuthButton,
+.secondaryAuthButton,
+.ghostAuthButton {
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primaryAuthButton {
+  border: 1px solid #f3c969;
   background: #f3c969;
-  color: #0b0801;
+  color: #111111;
+}
+
+.secondaryAuthButton {
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  background: rgba(99, 102, 241, 0.16);
+  color: #e0e7ff;
+}
+
+.ghostAuthButton {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: #e5e7eb;
+}
+
+.primaryAuthButton:disabled,
+.secondaryAuthButton:disabled,
+.ghostAuthButton:disabled,
+.aliasInput:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.authError {
+  margin: 0;
+  color: #fecaca;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 860px) {
+  .shell {
+    padding: 10px 12px 8px;
+  }
+
+  .topRow {
+    align-items: flex-start;
+  }
+
+  .brandButton {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .accountButton {
+    min-width: 132px;
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding: 8px 10px 6px;
+  }
+
+  .topRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .logoText {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  .tagline {
+    font-size: 0.84rem;
+  }
+
+  .controlCluster {
+    justify-content: flex-end;
+  }
+
+  .accountButton {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .authSummary {
+    align-items: flex-start;
+  }
+
+  .authGrid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .aliasLabel {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .authActions {
+    width: 100%;
+  }
+
+  .primaryAuthButton,
+  .secondaryAuthButton,
+  .ghostAuthButton {
+    width: 100%;
+  }
+
+  .smallLink,
+  .contactLink {
+    padding: 5px 8px;
+    font-size: 0.72rem;
+  }
 }

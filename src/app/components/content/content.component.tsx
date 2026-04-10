@@ -2,9 +2,29 @@ import React from "react";
 import styles from "./content.styles.module.scss";
 import parse from "html-react-parser";
 
+type VideoItem = {
+  id: {
+    videoId: string;
+  };
+  snippet: {
+    title: string;
+    thumbnails: {
+      high: {
+        url: string;
+      };
+    };
+  };
+};
+
+type ArticleItem = {
+  title: string;
+  author: string;
+  content: string;
+};
+
 type Props = {
-  videos: any[];
-  articles: any[];
+  videos: VideoItem[];
+  articles: ArticleItem[];
 };
 
 const Content: React.FC<Props> = ({ videos, articles }) => {

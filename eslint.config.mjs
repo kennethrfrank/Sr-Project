@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "Sr-Project/**",
+    "src/app/components/routes/shop/buy-button-storefront.min.js",
   ]),
 ]);
 
